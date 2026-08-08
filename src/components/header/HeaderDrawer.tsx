@@ -3,6 +3,7 @@ import { createContext, useContext, useState, forwardRef } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { motion, AnimatePresence } from 'framer-motion'
 import clsx from 'clsx'
+import { ThemeSwitch } from '@/components/footer/ThemeSwitch'
 
 const contentVariants = {
   hidden: {
@@ -60,7 +61,7 @@ export function HeaderDrawer({ zIndex = 999 }: { zIndex?: number }) {
 
             <Dialog.Content asChild>
               <motion.div
-                className="fixed left-0 inset-y-0 h-full bg-primary rounded-r-lg p-4 flex flex-col justify-center w-[260px] max-w-[80%]"
+                className="fixed left-0 inset-y-0 h-full backdrop-blur-2xl bg-white/70 dark:bg-gray-900/70 rounded-r-[48px] border-r border-y border-white/20 dark:border-white/[0.06] shadow-2xl p-4 flex flex-col justify-center w-[280px] max-w-[80%]"
                 style={{ zIndex: contentZIndex }}
                 variants={contentVariants}
                 initial="hidden"
@@ -103,16 +104,21 @@ function DrawerContentImpl() {
   const { dismiss } = useContext(DrawerContext)
 
   return (
-    <ul className="mt-8 pb-8 overflow-y-auto overflow-x-hidden min-h-0">
-      {menus.map((menu) => (
-        <motion.li key={menu.name} variants={menuItemVariants}>
-          <a className="inline-flex p-2 space-x-4" href={menu.link} onClick={dismiss}>
-            <i className={clsx('iconfont', menu.icon)}></i>
-            <span>{menu.name}</span>
-          </a>
-        </motion.li>
-      ))}
-    </ul>
+    <div className="mt-8 pb-8 overflow-y-auto overflow-x-hidden min-h-0 flex flex-col">
+      <ul>
+        {menus.map((menu) => (
+          <motion.li key={menu.name} variants={menuItemVariants}>
+            <a className="inline-flex p-2 space-x-4" href={menu.link} onClick={dismiss}>
+              <i className={clsx('iconfont', menu.icon)}></i>
+              <span>{menu.name}</span>
+            </a>
+          </motion.li>
+        ))}
+      </ul>
+      <div className="mt-6 pt-6 border-t border-primary">
+        <ThemeSwitch />
+      </div>
+    </div>
   )
 }
 

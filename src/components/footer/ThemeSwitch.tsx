@@ -3,46 +3,19 @@ import { useAtom } from 'jotai'
 
 export function ThemeSwitch() {
   const [theme, setTheme] = useAtom(themeAtom)
+  const isDark = theme === 'dark'
 
-  const left = { light: 4, system: 36, dark: 68 }[theme]
+  const toggle = () => setTheme(isDark ? 'light' : 'dark')
 
   return (
-    <div className="relative inline-block">
-      <div
-        className="absolute -z-1 top-1 size-[32px] rounded-full bg-primary transition-transform shadow"
-        style={{
-          transform: `translateX(${left}px)`,
-        }}
-      ></div>
-      <div
-        className="p-[3px] flex rounded-full border border-primary"
-        role="radiogroup"
-      >
-        <button
-          className="size-[32px] flex items-center justify-center"
-          type="button"
-          aria-label="Switch to light theme"
-          onClick={() => setTheme('light')}
-        >
-          <i className="iconfont icon-sun"></i>
-        </button>
-        <button
-          className="size-[32px] flex items-center justify-center"
-          type="button"
-          aria-label="Switch to system theme"
-          onClick={() => setTheme('system')}
-        >
-          <i className="iconfont icon-computer"></i>
-        </button>
-        <button
-          className="size-[32px] flex items-center justify-center"
-          type="button"
-          aria-label="Switch to dark theme"
-          onClick={() => setTheme('dark')}
-        >
-          <i className="iconfont icon-moon"></i>
-        </button>
-      </div>
-    </div>
+    <button
+      className="relative size-10 rounded-full border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-md shadow-lg flex items-center justify-center transition-colors duration-300 hover:bg-white/40 dark:hover:bg-white/10"
+      type="button"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      onClick={toggle}
+    >
+      <span className="sr-only">{isDark ? 'Light' : 'Dark'}</span>
+      <i className={`iconfont text-lg transition-all duration-300 ${isDark ? 'icon-sun' : 'icon-moon'}`}></i>
+    </button>
   )
 }

@@ -13,8 +13,8 @@ export function getLocalTheme() {
   if (local === 'dark' || local === 'light') {
     return local
   } else {
-    setLocalTheme('system')
-    return 'system'
+    setLocalTheme('light')
+    return 'light'
   }
 }
 

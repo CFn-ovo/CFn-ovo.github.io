@@ -11,7 +11,7 @@ import { remarkSpoiler } from './src/plugins/remarkSpoiler'
 import { remarkEmbed } from './src/plugins/remarkEmbed'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark'
 import { site } from './src/config.json'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
@@ -40,18 +40,20 @@ export default defineConfig({
   },
   markdown: {
     syntaxHighlight: false,
-    smartypants: false,
-    remarkPlugins: [remarkMath, remarkDirective, remarkEmbed, remarkSpoiler, remarkReadingTime],
-    rehypePlugins: [
-      rehypeHeadingIds,
-      rehypeKatex,
-      rehypeLink,
-      rehypeImage,
-      rehypeHeading,
-      rehypeCodeBlock,
-      rehypeCodeHighlight,
-      rehypeTableBlock,
-    ],
-    remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
+    processor: unified({
+      smartypants: false,
+      remarkPlugins: [remarkMath, remarkDirective, remarkEmbed, remarkSpoiler, remarkReadingTime],
+      rehypePlugins: [
+        rehypeHeadingIds,
+        rehypeKatex,
+        rehypeLink,
+        rehypeImage,
+        rehypeHeading,
+        rehypeCodeBlock,
+        rehypeCodeHighlight,
+        rehypeTableBlock,
+      ],
+      remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
+    }),
   },
 })

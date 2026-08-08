@@ -44,3 +44,51 @@ html.gray {
 * {
   scrollbar-width: thin;
 }
+
+.glow-text {
+  background: linear-gradient(
+    90deg,
+    #f472b6,
+    /* 粉 */ #818cf8,
+    /* 蓝紫 */ #34d399,
+    /* 绿 */ #f472b6
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -300% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+/* 暗色模式下调整流光颜色 */
+.dark .glow-text {
+  background: linear-gradient(
+    90deg,
+    #f9a8d4,
+    /* 浅粉 */ #a5b4fc,
+    /* 浅蓝紫 */ #6ee7b7,
+    /* 浅绿 */ #f9a8d4
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.scroll-arrow {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.scroll-arrow:hover {
+  transform: scale(1.2);
+}
