@@ -9,7 +9,6 @@ import { rehypeHeading } from './src/plugins/rehypeHeading'
 import remarkDirective from 'remark-directive'
 import { remarkSpoiler } from './src/plugins/remarkSpoiler'
 import { remarkEmbed } from './src/plugins/remarkEmbed'
-import tailwind from '@astrojs/tailwind'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
@@ -22,8 +21,6 @@ import swup from '@swup/astro'
 export default defineConfig({
   site: site.url,
   integrations: [
-    tailwind({applyBaseStyles: false}),
-
     react(),
     sitemap(),
     swup({
@@ -34,9 +31,10 @@ export default defineConfig({
     }),
   ],
   vite: {
-    css: {
-      postcss: {
-        plugins: [(await import('@tailwindcss/postcss')).default()],
+    plugins: [(await import('@tailwindcss/vite')).default()],
+    build: {
+      rollupOptions: {
+        external: ['/pagefind/pagefind.js'],
       },
     },
   },
@@ -55,12 +53,5 @@ export default defineConfig({
       rehypeTableBlock,
     ],
     remarkRehype: { footnoteLabel: '参考', footnoteBackLabel: '返回正文' },
-  },
-  vite: {
-    build: {
-      rollupOptions: {
-        external: ['/pagefind/pagefind.js'],
-      },
-    },
   },
 })

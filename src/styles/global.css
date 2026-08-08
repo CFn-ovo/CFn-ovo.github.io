@@ -3,7 +3,8 @@
 @import './markdown.css';
 @import './signature.css';
 @import './swup.css';
-@import './tailwind.css';
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
 
 @font-face {
   font-family: 'Atkinson';

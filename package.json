@@ -52,6 +52,7 @@
     "@commitlint/config-conventional": "^21.2.0",
     "@inquirer/prompts": "^8.5.2",
     "@tailwindcss/postcss": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
     "lint-staged": "^17.3.0",
     "micromark-util-symbol": "^2.0.1",
     "prettier": "^3.9.6",
