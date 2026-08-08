@@ -1,0 +1,68 @@
+{
+  "name": "astro-gyoza",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "prepare": "pnpm exec simple-git-hooks",
+    "dev": "astro dev",
+    "build": "astro check && astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "prettier --write .",
+    "new-friend": "node scripts/new-friend.js",
+    "new-post": "node scripts/new-post.js",
+    "new-project": "node scripts/new-project.js"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/markdown-remark": "^7.2.2",
+    "@astrojs/react": "^6.0.2",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/tailwind": "^6.0.2",
+    "@radix-ui/react-dialog": "^1.1.23",
+    "@shikijs/rehype": "^4.4.2",
+    "@swup/astro": "^1.8.0",
+    "@waline/client": "^3.15.2",
+    "astro": "^7.2.0",
+    "chroma-js": "^3.2.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^13.0.0",
+    "hastscript": "^9.0.1",
+    "jotai": "^2.20.2",
+    "katex": "^0.18.1",
+    "lodash-es": "^4.18.1",
+    "mdast-util-to-string": "^4.0.0",
+    "pagefind": "^1.5.2",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-toastify": "^11.1.0",
+    "reading-time": "^1.5.0",
+    "rehype-katex": "^7.0.1",
+    "remark-directive": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.2",
+    "unist-util-visit": "^5.1.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "@inquirer/prompts": "^8.5.2",
+    "@tailwindcss/postcss": "^4.3.3",
+    "lint-staged": "^17.3.0",
+    "micromark-util-symbol": "^2.0.1",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "simple-git-hooks": "^2.13.1"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm exec commitlint --edit $1",
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx.astro,md,css,json}": "prettier --write"
+  }
+}
