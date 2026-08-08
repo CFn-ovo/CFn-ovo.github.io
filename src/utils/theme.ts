@@ -8,13 +8,13 @@ export function getSystemTheme() {
 
 const themeKey = 'gyoza-theme'
 
-export function getLocalTheme() {
+export function getLocalTheme(): 'dark' | 'light' | 'system' {
   const local = localStorage.getItem(themeKey)
-  if (local === 'dark' || local === 'light') {
+  if (local === 'dark' || local === 'light' || local === 'system') {
     return local
   } else {
-    setLocalTheme('light')
-    return 'light'
+    setLocalTheme('system')
+    return 'system'
   }
 }
 

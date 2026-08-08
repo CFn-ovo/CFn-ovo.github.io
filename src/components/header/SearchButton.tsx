@@ -3,6 +3,12 @@ import { useCurrentModal, useModal } from '@/components/ui/modal'
 import { useEffect, useState } from 'react'
 import { useDebounceValue } from '@/hooks/useDebounceValue'
 
+interface PagefindResult {
+  url: string
+  excerpt: string
+  meta: { title: string }
+}
+
 let pagefind: any = null
 async function loadPagefind() {
   if (import.meta.env.PROD && !pagefind) {
@@ -37,7 +43,7 @@ export function SearchButton() {
 function SearchPanel() {
   const [keyword, setKeyword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [results, setResults] = useState<any[]>([])
+  const [results, setResults] = useState<PagefindResult[]>([])
   const debouncedKeyword = useDebounceValue(keyword, 350)
 
   const { dismiss } = useCurrentModal()

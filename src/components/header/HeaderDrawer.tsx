@@ -1,5 +1,5 @@
 import { menus } from '@/config.json'
-import { createContext, useContext, useState, forwardRef } from 'react'
+import { type ButtonHTMLAttributes, createContext, useContext, useState, forwardRef } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
 import { motion, AnimatePresence } from 'framer-motion'
 import clsx from 'clsx'
@@ -10,7 +10,7 @@ const contentVariants = {
     x: '-100%',
     transition: {
       duration: 0.2,
-      ease: 'easeOut',
+      ease: 'easeOut' as const,
     },
   },
   visible: {
@@ -19,7 +19,7 @@ const contentVariants = {
       staggerChildren: 0.1,
       delayChildren: 0.1,
       duration: 0.2,
-      ease: 'easeOut',
+      ease: 'easeOut' as const,
     },
   },
 }
@@ -86,7 +86,7 @@ export function HeaderDrawer({ zIndex = 999 }: { zIndex?: number }) {
   )
 }
 
-const TriggerButton = forwardRef<HTMLButtonElement>((props, ref) => {
+const TriggerButton = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>((props, ref) => {
   return (
     <button
       ref={ref}
