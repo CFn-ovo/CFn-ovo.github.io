@@ -36,8 +36,8 @@ const specCollection = defineCollection({
   }),
 })
 
-const friendsCollection = defineCollection({
-  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/friends' }),
+const commentsCollection = defineCollection({
+  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/comments' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -50,5 +50,5 @@ export const collections = {
   posts: postsCollection,
   projects: projectsCollection,
   spec: specCollection,
-  friends: friendsCollection,
+  comments: commentsCollection,
 }

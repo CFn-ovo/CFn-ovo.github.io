@@ -1,40 +1,45 @@
 ---
+// 从配置文件中导入作者信息和页脚配置
 import { author, footer } from '@/config.json'
+// 导入工具函数：获取所有博文的总字数
 import { getAllPostsWordCount } from '@/utils/content'
+// 导入运行天数组件（React 客户端组件）
 import { RunningDays } from './RunningDays'
+// 导入自定义链接组件
 import Link from './Link.astro'
 
+// 从 footer.startTime 中提取起始年份（建站年份）
 const sinceYear = new Date(footer.startTime).getFullYear()
+// 获取当前年份
 const thisYear = new Date().getFullYear()
+// 计算版权显示的年份范围：如果起始年和今年相同则只显示一年，否则显示 "起始年 - 今年"
 const copyDate = sinceYear === thisYear ? thisYear : `${sinceYear} - ${thisYear}`
 
+// 异步获取所有博文的总字数（单位：汉字/字符）
 const wordCount = await getAllPostsWordCount()
 
+// 将字数转换为千字单位（k），保留一位小数
 const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
 ---
 
+<!-- 页脚容器：相对定位，z-index 保证层级，内边距，上边框，文字颜色和大小 -->
 <footer class="relative z-1 py-8 px-4 md:px-8 border-t border-primary text-secondary text-sm">
+  <!-- 居中的内容区域，垂直间距 -->
   <div class="text-center space-y-2">
+    <!-- 第一行：技术栈和主题设计信息 -->
     <div>
-      Powered by
-      <Link href="https://astro.build/">Astro</Link>
-      & Designed by
-      <Link href="https://github.com/lxchapu/astro-gyoza">Gyoza</Link>
+      Powered by 
+      <Link href="https://astro.build/"> Astro </Link>
+      & Designed by 
+      <Link href="https://github.com/cfn-ovo/cfn-ovo.github.io"> CFn-ovo</Link>
     </div>
-    <div class="space-x-1">
-      <span>&copy;{copyDate} <Link href="/">{author.name}</Link>.</span>
-      <Link href="/rss.xml" data-no-swup>
-        <i class="iconfont icon-rss"></i>
-        <span>RSS</span>
-      </Link>
-      <Link href="/sitemap-index.xml" data-no-swup>
-        <i class="iconfont icon-map"></i>
-        <span>站点地图</span>
-      </Link>
-    </div>
+    <!-- 第三行：运行天数和总字数 -->
     <div>
+      <!-- React 客户端组件：动态计算并显示网站已运行天数 -->
       <RunningDays client:only="react" />
+      <!-- 分隔符，半透明且禁止选中 -->
       <span class="select-none opacity-50">|</span>
+      <!-- 显示总字数（千字单位） -->
       <span>共嘚嘚了 {wordCountStr} 字</span>
     </div>
   </div>

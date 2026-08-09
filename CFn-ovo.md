@@ -19,8 +19,8 @@ CFn-ovo/
 │ ├── content/ # 内容集合
 │ │ ├── posts/ # 博客文章 (.md)
 │ │ ├── projects/ # 项目展示 (.yaml)
-│ │ ├── friends/ # 友链 (.yaml)
-│ │ └── spec/ # 独立页面 (about/friends/projects .md)
+│ │ ├── comments/ # 评论 (.yaml)
+│ │ └── spec/ # 独立页面 (about/comments/projects .md)
 │ │
 │ ├── content.config.ts # 内容集合 Schema 定义 (Zod)
 │ ├── config.json # 全站配置 (站点、作者、配色、菜单等)

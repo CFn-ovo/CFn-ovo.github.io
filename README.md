@@ -5,7 +5,7 @@
 ![astro version](https://img.shields.io/badge/astro-7.2-blue)
 ![node version](https://img.shields.io/badge/node-18.18-green)
 
-在线访问：[Jin1919.github.io](https://Jin1919.github.io)
+在线访问：[cfn-ovo.github.io](https://cfn-ovo.github.io)
 
 ## ✨ 特性
 
@@ -39,7 +39,7 @@
 ├── scripts/                # 自定义脚本
 │   ├── new-post.js         # 创建新文章
 │   ├── new-project.js      # 创建新项目
-│   └── new-friend.js       # 添加友情链接
+│   └── new-comment.js      # 添加评论
 ├── src/
 │   ├── components/
 │   ├── content/            # 博客文章内容
@@ -67,7 +67,6 @@
 | `pnpm lint`        | 使用 Prettier 格式化代码               |
 | `pnpm new-post`    | 创建新文章                             |
 | `pnpm new-project` | 创建新项目                             |
-| `pnpm new-friend`  | 添加友情链接                           |
 
 ## 🔧 Git Hooks
 

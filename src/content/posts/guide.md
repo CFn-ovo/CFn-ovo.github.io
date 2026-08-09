@@ -17,7 +17,7 @@ sticky: 1
 
 ### 克隆仓库
 
-登录 Github 账号，打开 [lxchapu/astro-gyoza](https://github.com/lxchapu/astro-gyoza)，点击右上角的 Fork 按钮，将仓库克隆到你自己的账号下。
+登录 Github 账号，打开 [cfn-ovo/cfn-ovo.github.io](https://github.com/cfn-ovo/cfn-ovo.github.io)，点击右上角的 Fork 按钮，将仓库克隆到你自己的账号下。
 
 复制这个仓库的地址，打开终端，使用 `git clone` 命令将仓库克隆到本地。
 
