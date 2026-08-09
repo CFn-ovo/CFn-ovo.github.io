@@ -1,6 +1,6 @@
 {
   "site": {
-    "url": "https://github.com/Jin1919/Jin1919.github.io",
+    "url": "https://jin1919.github.io",
     "title": "CFn-ovo",
     "description": "这是一个使用 Astro 和 React 开发的博客主题。",
     "keywords": "CFn-ovo,blog,Astro,theme,,博客主题",
@@ -9,8 +9,7 @@
     "appleTouchIcon": "/apple-touch-icon.png"
   },
   "author": {
-    "name": "CFn-ovo",
-    "avatar": "https://s2.loli.net/2024/04/30/ozsnuS5Ihf3xMBG.webp"
+    "name": "CFn-ovo"
   },
   "hero": {
     "name": "CFn-ovo",
@@ -20,7 +19,7 @@
       {
         "name": "Github",
         "icon": "icon-github",
-        "url": "hhttps://github.com/Jin1919/Jin1919.github.io",
+        "url": "https://github.com/Jin1919/Jin1919.github.io",
         "color": "rgb(24, 23, 23)"
       },
       {

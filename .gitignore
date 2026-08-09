@@ -6,6 +6,8 @@ dist/
 
 # dependencies
 node_modules/
+.pnp
+.pnp.js
 
 # logs
 npm-debug.log*
@@ -15,10 +17,39 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.production
+.env.*
+!.env.example
 
-# macOS-specific files
+# OS files
 .DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# jetbrains setting folder
+# IDE / Editor
 .idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Vite
+vite.config.ts.timestamp-*
+
+# Astro
+.astro/
+
+# Pagefind (generated index at build time)
+src/public/pagefind/
+
+# Lock file (optional — pnpm uses pnpm-lock.yaml, keep it tracked for CI reproducibility)
+pnpm-lock.yaml
