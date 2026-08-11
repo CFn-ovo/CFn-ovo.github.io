@@ -18,8 +18,8 @@ const copyDate = sinceYear === thisYear ? thisYear : `${sinceYear} - ${thisYear}
 // 异步获取所有博文的总字数（单位：汉字/字符）
 const wordCount = await getAllPostsWordCount()
 
-// 将字数转换为千字单位（k），保留一位小数
-const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
+// 将字数转换为万字单位（w），保留一位小数
+const wordCountStr = (wordCount / 10000).toFixed(1) + 'w'
 ---
 
 <!-- 页脚容器：相对定位，z-index 保证层级，内边距，上边框，文字颜色和大小 -->
@@ -39,8 +39,8 @@ const wordCountStr = (wordCount / 1000).toFixed(1) + 'k'
       <RunningDays client:only="react" />
       <!-- 分隔符，半透明且禁止选中 -->
       <span class="select-none opacity-50">|</span>
-      <!-- 显示总字数（千字单位） -->
-      <span>共嘚嘚了 {wordCountStr} 字</span>
+      <!-- 显示总字数（万字单位） -->
+      <span>  {wordCountStr}字</span>
     </div>
   </div>
 </footer>
