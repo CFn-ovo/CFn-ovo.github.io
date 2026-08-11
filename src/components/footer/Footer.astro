@@ -1,19 +1,10 @@
 ---
-// 从配置文件中导入作者信息和页脚配置
-import { author, footer } from '@/config.json'
 // 导入工具函数：获取所有博文的总字数
 import { getAllPostsWordCount } from '@/utils/content'
 // 导入运行天数组件（React 客户端组件）
 import { RunningDays } from './RunningDays'
 // 导入自定义链接组件
 import Link from './Link.astro'
-
-// 从 footer.startTime 中提取起始年份（建站年份）
-const sinceYear = new Date(footer.startTime).getFullYear()
-// 获取当前年份
-const thisYear = new Date().getFullYear()
-// 计算版权显示的年份范围：如果起始年和今年相同则只显示一年，否则显示 "起始年 - 今年"
-const copyDate = sinceYear === thisYear ? thisYear : `${sinceYear} - ${thisYear}`
 
 // 异步获取所有博文的总字数（单位：汉字/字符）
 const wordCount = await getAllPostsWordCount()

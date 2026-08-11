@@ -12,7 +12,7 @@ export function TimelineProgress({ pathname: _pathname }: Props) {
   const [dayOfYear, setDayOfYear] = useState(0)
   const [percentOfYear, setPercentOfYear] = useState(0)
   const [percentOfToday, setPercentOfToday] = useState(0)
-  const intervalRef = useRef<ReturnType<typeof setInterval>>()
+  const intervalRef = useRef<ReturnType<typeof setInterval>>(null)
 
   const updateInfo = useCallback(() => {
     const now = new Date()
@@ -80,7 +80,7 @@ function CountUp({
 }) {
   const node = useRef<HTMLSpanElement>(null)
   const prev = useRef(0)
-  const animRef = useRef<ReturnType<typeof animate>>()
+  const animRef = useRef<ReturnType<typeof animate>>(null)
 
   useEffect(() => {
     const el = node.current

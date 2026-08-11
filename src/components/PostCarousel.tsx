@@ -144,7 +144,7 @@ export function PostCarousel({ posts }: Props) {
   }
 
   // ── 卡片点击拦截（拖拽时不跳转） ──
-  const handleCardClick = (e: React.MouseEvent, href: string) => {
+  const handleCardClick = (e: React.MouseEvent, _href: string) => {
     if (dragMoved.current) {
       e.preventDefault()
       return
