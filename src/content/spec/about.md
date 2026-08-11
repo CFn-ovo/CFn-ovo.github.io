@@ -6,7 +6,7 @@ comments: false
 
 ## 关于作者
 
-我是 CFn-ovo，是一名数字游民，喜欢各种有趣的东西。欢迎访问我的个人网站 [cfn-ovo.github.io](https://cfn-ovo.github.io)，了解关于我更多的信息。
+我是 CFn-ovo，一名学生，未来是想成为数字游民，喜欢各种有趣的东西。欢迎访问我的个人网站 [CFn-ovo](https://github.com/CFn-ovo)，了解关于我更多的信息。
 
 ## 致谢
 
