@@ -1,0 +1,328 @@
+/* ===== Waline 美化：匹配首页玻璃卡片风格 ===== */
+
+/* ---- CSS 变量覆盖 ---- */
+.waline-container {
+  --waline-theme-color: rgb(var(--color-accent));
+  --waline-active-color: rgb(var(--color-accent));
+  --waline-color: rgb(var(--color-text-primary));
+  --waline-color-light: rgb(var(--color-text-secondary));
+  --waline-bg-color: transparent;
+  --waline-bg-color-light: rgb(var(--color-bg-secondary) / 0.4);
+  --waline-bg-color-hover: rgb(var(--color-accent) / 0.08);
+  --waline-border-color: rgb(var(--color-border-primary));
+  --waline-border: 1px solid rgb(var(--color-border-primary));
+  --waline-font-size: 15px;
+  --waline-line-height: 1.75;
+  --waline-border-radius: 16px;
+  --waline-avatar-radius: 50%;
+  --waline-avatar-size: 42px;
+  --waline-m-avatar-size: 36px;
+}
+
+/* ---- 评论计数 ---- */
+.waline-container .wl-count {
+  color: rgb(var(--color-text-primary));
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ---- 面板 ---- */
+.waline-container .wl-panel {
+  border-radius: 20px;
+  overflow: visible;
+}
+
+/* ---- 编辑器区域 ---- */
+.waline-container .wl-editor {
+  border-radius: 6px;
+  border: 1px solid rgb(var(--color-border-primary) / 0.6);
+  background: rgb(var(--color-bg-secondary) / 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.waline-container .wl-editor:focus-within {
+  border-color: rgb(var(--color-accent) / 0.4);
+  box-shadow: 0 0 0 3px rgb(var(--color-accent) / 0.08);
+}
+
+/* ---- 输入框 ---- */
+.waline-container .wl-input {
+  background: rgb(var(--color-bg-secondary) / 0.3);
+  color: rgb(var(--color-text-primary));
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.waline-container .wl-input:focus {
+  background: rgb(var(--color-bg-secondary) / 0.5);
+  box-shadow: 0 0 0 3px rgb(var(--color-accent) / 0.1);
+  outline: none;
+}
+
+/* ---- 编辑区文本域 ---- */
+.waline-container .wl-editor .wl-edit {
+  border-radius: 10px;
+  border: none;
+  line-height: 1.75;
+}
+
+/* ---- 按钮通用 ---- */
+.waline-container .wl-btn {
+  border-radius: 13px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 18px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+/* 主按钮（提交） */
+.waline-container .wl-btn-primary {
+  background: rgb(var(--color-accent));
+  border-color: rgb(var(--color-accent));
+  color: #fff;
+  box-shadow: 0 2px 8px rgb(var(--color-accent) / 0.25);
+}
+
+.waline-container .wl-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgb(var(--color-accent) / 0.35);
+}
+
+.waline-container .wl-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 次级按钮 */
+.waline-container .wl-btn:not(.wl-btn-primary) {
+  background: rgb(var(--color-bg-secondary) / 0.6);
+  border: 1px solid rgb(var(--color-border-primary) / 0.5);
+  color: rgb(var(--color-text-secondary));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.waline-container .wl-btn:not(.wl-btn-primary):hover {
+  background: rgb(var(--color-accent) / 0.08);
+  border-color: rgb(var(--color-accent) / 0.3);
+  color: rgb(var(--color-accent));
+}
+
+/* ---- 评论卡片 ---- */
+.waline-container .wl-card {
+  border-radius: 20px;
+  border: 1px solid rgb(var(--color-border-primary) / 0.35);
+  background: rgb(var(--color-bg-secondary) / 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* 去掉评论下方的分隔横杠 */
+.waline-container .wl-comment {
+  border-bottom: none !important;
+}
+
+.waline-container .wl-card hr,
+.waline-container .wl-card .wl-line {
+  display: none !important;
+}
+
+.waline-container .wl-card:hover {
+  border-color: rgb(var(--color-accent) / 0.2);
+  box-shadow: 0 4px 16px rgb(var(--color-accent) / 0.06);
+}
+
+/* ---- 评论元信息 ---- */
+.waline-container .wl-meta {
+  color: rgb(var(--color-text-secondary));
+  font-size: 13px;
+}
+
+.waline-container .wl-meta > span:first-child {
+  color: rgb(var(--color-text-primary));
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ---- 评论内容 ---- */
+.waline-container .wl-content {
+  color: rgb(var(--color-text-primary));
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.waline-container .wl-content .wl-hide,
+.waline-container .wl-content .spoiler {
+  background-color: rgb(var(--color-text-primary) / 0.12);
+  border-radius: 4px;
+  padding: 1px 6px;
+  transition: background-color 0.2s ease;
+}
+
+/* ---- 操作按钮（回复/点赞） ---- */
+.waline-container .wl-action {
+  color: rgb(var(--color-text-secondary));
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.waline-container .wl-action:hover {
+  color: rgb(var(--color-accent));
+}
+
+.waline-container .wl-action.active {
+  color: rgb(var(--color-accent));
+}
+
+/* ---- 头像 ---- */
+.waline-container .wl-avatar > img {
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.06);
+  transition: transform 0.2s ease;
+}
+
+.waline-container .wl-card:hover .wl-avatar > img {
+  transform: scale(1.05);
+}
+
+/* ---- Badge / 等级标签 ---- */
+.waline-container .wl-badge {
+  border-radius: 8px;
+  font-size: 11px;
+  padding: 2px 8px;
+  background: rgb(var(--color-accent) / 0.12);
+  color: rgb(var(--color-accent));
+  border: 1px solid rgb(var(--color-accent) / 0.2);
+}
+
+/* ---- 回复子评论 ---- */
+.waline-container .wl-quote {
+  border-left: 3px solid rgb(var(--color-accent) / 0.4);
+  background: rgb(var(--color-bg-secondary) / 0.3);
+  border-radius: 0 12px 12px 0;
+  padding: 8px 12px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* ---- 加载更多 ---- */
+.waline-container .wl-more {
+  border-radius: 16px;
+  background: rgb(var(--color-bg-secondary) / 0.4);
+  border: 1px solid rgb(var(--color-border-primary) / 0.4);
+  color: rgb(var(--color-text-secondary));
+  font-weight: 500;
+  padding: 10px 24px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.waline-container .wl-more:hover {
+  background: rgb(var(--color-accent) / 0.08);
+  border-color: rgb(var(--color-accent) / 0.3);
+  color: rgb(var(--color-accent));
+}
+
+/* ---- 登录区域 ---- */
+.waline-container .wl-login-info {
+  border-radius: 14px;
+  background: rgb(var(--color-bg-secondary) / 0.3);
+  padding: 10px 14px;
+}
+
+.waline-container .wl-login-info .wl-avatar > img {
+  border-radius: 50%;
+}
+
+/* ---- 表情选择器 ---- */
+.waline-container .wl-tab-wrapper {
+  border-radius: 16px;
+  border: 1px solid rgb(var(--color-border-primary) / 0.5);
+  overflow: hidden;
+}
+
+.waline-container .wl-tab {
+  border-bottom: 2px solid transparent;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.waline-container .wl-tab.active {
+  border-bottom-color: rgb(var(--color-accent));
+  color: rgb(var(--color-accent));
+}
+
+/* ---- 滚动条 ---- */
+.waline-container ::-webkit-scrollbar {
+  width: 4px;
+}
+
+.waline-container ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.waline-container ::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border-primary));
+  border-radius: 4px;
+}
+
+/* ---- powered by ---- */
+.waline-container .wl-power {
+  color: rgb(var(--color-text-secondary) / 0.5);
+  font-size: 12px;
+}
+
+/* ---- 暗色模式微调 ---- */
+[data-theme='dark'] .waline-container .wl-card {
+  background: rgb(255 255 255 / 0.03);
+  border-color: rgb(255 255 255 / 0.06);
+}
+
+[data-theme='dark'] .waline-container .wl-editor {
+  background: rgb(255 255 255 / 0.03);
+  border-color: rgb(255 255 255 / 0.08);
+}
+
+[data-theme='dark'] .waline-container .wl-editor:focus-within {
+  border-color: rgb(var(--color-accent) / 0.3);
+  box-shadow: 0 0 0 3px rgb(var(--color-accent) / 0.06);
+}
+
+[data-theme='dark'] .waline-container .wl-btn:not(.wl-btn-primary) {
+  background: rgb(255 255 255 / 0.05);
+  border-color: rgb(255 255 255 / 0.1);
+}
+
+[data-theme='dark'] .waline-container .wl-btn:not(.wl-btn-primary):hover {
+  background: rgb(var(--color-accent) / 0.12);
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 640px) {
+  .waline-glass-wrapper {
+    border-radius: 20px !important;
+    padding: 20px 16px !important;
+  }
+  .waline-container .wl-card {
+    padding: 12px 14px;
+  }
+  .waline-container .wl-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+}
